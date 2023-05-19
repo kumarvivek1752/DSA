@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -25,8 +26,8 @@ void shortedSquaredArray(vector<int> &v){
         }
     }
 
-
-    for(int i=0; i<v.size(); i++){
+    reverse(ans.begin(),ans.end());
+    for(int i=0; i<ans.size(); i++){
         cout<<ans[i]<<" ";
     }
     cout<<endl;
