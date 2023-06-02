@@ -3,82 +3,60 @@
 
 
 #include <iostream>
-#include <vector>
 
 
 using namespace std;
 
 int main(){
 
-    int matrixRowLenth,matrixColumnLenth,matrix2RowLenth,matrix2ColumnLenth;
+    int r1,c1;
+    cout<<"Enter the size of first matrix"<<endl;
+    cin>>r1>>c1;
 
-    
-
-    cout<<"Enter Lenth of Row and Column of Matrix 1"<<endl;
-    cin>>matrixRowLenth>>matrixColumnLenth;
-    vector<vector<int>> matrix(matrixRowLenth,vector<int>(matrixColumnLenth));
-    cout<<"Enter Lenth of Row and Column of Matrix 2"<<endl;
-    cin>>matrix2RowLenth>>matrix2ColumnLenth;
-     vector<vector<int>> matrix2(matrix2RowLenth,vector<int>(matrix2ColumnLenth));
-
-     vector<vector<int>>matrix3(matrixRowLenth,vector<int>(matrix2ColumnLenth));
-
-    cout<<"enter matrix 1 values:" <<endl;
-    for (int i = 0; i<matrixRowLenth; i++){
-        for(int j=0; j<matrixColumnLenth; j++){
-            cout << "Enter value at position (" << i << ", " << j+1 << "): ";
-            
-            cin>>matrix[i][j];
+    int A[r1][c1];
+    cout<<"Enter the elements of first matrix"<<endl;
+    for(int i=0;i<r1;i++){
+        for(int j=0;j<c1;j++){
+            cin>>A[i][j];
         }
     }
-    cout<<"enter matrix 2 values:" <<endl;
-    
-    for (int i = 0; i<matrixRowLenth; i++){
-        for(int j=0; j<matrixColumnLenth; j++){
-            cout << "Enter value at position (" << i << ", " << j+1 << "): ";
-            
-            cin>>matrix2[i][j];
+
+    int r2,c2;
+    cout<<"Enter the size of second matrix"<<endl;
+    cin>>r2>>c2;
+
+    int B[r2][c2];
+    cout<<"Enter the elements of second matrix"<<endl;
+    for(int i=0;i<r2;i++){
+        for(int j=0;j<c2;j++){
+            cin>>B[i][j];
         }
     }
-   cout << "Your Matrix 1" <<endl;
-    for(int i=0; i<matrixRowLenth; i++){
-        for(int j=0; j<matrixColumnLenth; j++){
-            cout<<matrix[i][j];
+
+
+    if(c1!=r2){
+        cout<<"Matrix is not multiplicable Invalid input";
+        return 0;
+    }
+
+    int C[r1][c2];
+    for(int i=0;i<r1;i++){
+        for(int j=0;j<c2;j++){
+            int value = 0;
+            for (int k = 0; k < r2; k++)
+            {
+                value += A[i][k] * B[k][j];
+            }   
+            C[i][j] = value;
+        }
+    }
+    cout<<"The resultant matrix is"<<endl;
+    for(int i=0;i<r1;i++){
+        for(int j=0;j<c2;j++){
+            cout<<C[i][j]<<" ";
         }
         cout<<endl;
     }
-    cout << "Your Matrix 2" <<endl;
-    for(int i=0; i<matrixRowLenth; i++){
-    for(int j=0; j<matrixColumnLenth; j++){
-        cout<<matrix2[i][j];
-    }
-    cout<<endl;
-}
-
-    cout << "tring to multiply...." <<endl;
-    if (matrixColumnLenth == matrix2RowLenth){
-
-    for(int i=0; i<matrixRowLenth; i++){
-        for(int j=0; j<matrix2ColumnLenth; j++){
-            matrix3[i][j] = matrix[j][i]*matrix2[i][j];
-        }
-    }
-
-
-
-    cout << "Your Multiplied Matrix" <<endl;
-    for(int i=0; i<matrixRowLenth; i++){
-    for(int j=0; j<matrix2ColumnLenth; j++){
-        cout<<matrix3[i][j];
-    }
-    cout<<endl;
-    }
-
-    }else{
-        cout<<"Your matrix is Not multiplicable"<<endl;
-    }
-    
-
 
 
 
