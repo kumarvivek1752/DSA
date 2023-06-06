@@ -1,2 +1,2 @@
 # DSA
-DSA-practice in Cpp Questions.
+DSA-practice in Cpp.
