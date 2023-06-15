@@ -5,5 +5,9 @@
         "formulahendry.code-runner"
     ],
     "code-runner.runInTerminal": true,
-    "code-runner.saveAllFilesBeforeRun": true
+    "code-runner.saveAllFilesBeforeRun": true,
+    "files.associations": {
+        "*.yml": "yaml",
+        "iostream": "cpp"
+    }
 }
